@@ -41,12 +41,8 @@ main{overflow-x:hidden;width:100%;max-width:100%}
   box-shadow:0 4px 32px rgba(0,0,0,.35)
 }
 .nav.hidden{transform:translateX(-50%) translateY(-120%);opacity:0}
-.nav-logo{
-  font-family:var(--font-display);font-size:.9rem;font-weight:500;
-  color:var(--white);text-decoration:none;margin-right:.8rem;letter-spacing:.01em;
-  transition:color .2s
-}
-.nav-logo:hover{color:var(--gold)}
+.nav-logo{display:flex;align-items:center;gap:.45rem;text-decoration:none;margin-right:.8rem;transition:opacity .2s}
+.nav-logo:hover{opacity:.75}
 .nav-pill-links{display:flex;align-items:center;gap:.1rem;list-style:none;position:relative}
 .nav-pill-links>li{position:relative}
 .nav-pill-links>li>a{
@@ -452,7 +448,7 @@ h2.section-title em{font-style:italic;font-family:var(--font-display);color:var(
 <div id="curtain"></div>
 
 <nav class="nav" id="mainNav">
-  <a href="index.html" class="nav-logo">The Blonde Hedgehog</a>
+  <a href="index.html" class="nav-logo"><img src="the-blonde-hedgehog-logo-2.webp" alt="" style="height:22px;width:auto"><img src="the-blonde-hedgehog-logo-1.webp" alt="The Blonde Hedgehog" style="height:22px;width:auto"></a>
   <ul class="nav-pill-links">
     <li><a href="stay.html">Stay</a></li>
     <li>
