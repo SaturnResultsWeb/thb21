@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Spikes · Rooms · The Blonde Hedgehog, Alderney</title>
+<meta name="description" content="Spikes — a top-floor standard double loft bedroom at The Blonde Hedgehog, Alderney. Original dormer features, open-plan layout, walk-in shower and generous double bed. From £170 per night.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F5F0E8;--cream-dark:#EDE6D6;--ink:#1A1A18;--ink-soft:#3a3a36;
+  --moss:#2C3B2D;--gold:#B8965A;--gold-light:#D4AF7A;--stone:#8C7B6B;
+  --white:#FDFCF9;--font-display:'Spectral',Georgia,serif;
+  --font-body:'Jost',system-ui,sans-serif;--nav-h:72px;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);--ease-io:cubic-bezier(0.87,0,0.13,1)
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--cream);color:var(--ink);font-size:16px;line-height:1.6;overflow-x:hidden}
+#curtain{position:fixed;inset:0;background:var(--ink);z-index:9999;pointer-events:none;transform:translateY(100%);transition:transform .55s var(--ease-io)}
+#curtain.in{transform:translateY(0)}#curtain.out{transform:translateY(-100%)}
+
+/* NAV */
+.nav{position:fixed;top:1.4rem;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:.15rem;background:rgba(26,26,24,.97);border:1px solid rgba(255,255,255,.07);border-radius:100px;padding:.5rem .5rem .5rem 1.5rem;z-index:100;white-space:nowrap;transition:transform .4s var(--ease-out),opacity .3s;box-shadow:0 4px 32px rgba(0,0,0,.35)}
+.nav.hidden{transform:translateX(-50%) translateY(-120%);opacity:0}
+.nav-logo{font-family:var(--font-display);font-size:.9rem;font-weight:500;color:var(--white);text-decoration:none;margin-right:.8rem;letter-spacing:.01em;transition:color .2s}
+.nav-logo:hover{color:var(--gold)}
+.nav-pill-links{display:flex;align-items:center;gap:.1rem;list-style:none;position:relative}
+.nav-pill-links>li{position:relative}
+.nav-pill-links>li>a{font-family:var(--font-body);font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,252,249,.7);text-decoration:none;padding:.42rem .85rem;border-radius:100px;display:block;transition:color .2s,background .2s}
+.nav-pill-links>li>a:hover{color:var(--white);background:rgba(255,255,255,.07)}
+.nav-pill-links>li>a.active{color:var(--gold)}
+.nav-drop{position:absolute;top:calc(100% + .6rem);left:0;background:var(--ink);border:1px solid rgba(255,255,255,.07);border-radius:12px;min-width:168px;padding:.4rem 0;opacity:0;pointer-events:none;transform:translateY(6px) scale(.97);transform-origin:top left;transition:opacity .2s,transform .2s var(--ease-out)}
+.nav-drop::before{content:'';position:absolute;top:-.6rem;left:0;right:0;height:.6rem}
+.nav-pill-links>li:hover>.nav-drop{opacity:1;pointer-events:all;transform:none}
+.nav-drop a{display:block;padding:.55rem 1rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,252,249,.65);text-decoration:none;transition:color .18s,background .18s;font-weight:500}
+.nav-drop a:hover{color:var(--gold);background:rgba(255,255,255,.04)}
+.nav-cta{background:var(--gold)!important;color:var(--ink)!important;padding:.5rem 1.25rem!important;font-weight:600!important;border-radius:100px!important;margin-left:.3rem;transition:background .2s,transform .15s!important}
+.nav-cta:hover{background:var(--gold-light)!important;transform:none!important;color:var(--ink)!important}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;width:28px;height:20px;flex-direction:column;justify-content:space-between;margin-left:.5rem}
+.nav-toggle span{display:block;width:100%;height:1.5px;background:var(--white);transition:transform .35s var(--ease-out),opacity .3s;transform-origin:left center}
+.nav-toggle.open span:nth-child(1){transform:rotate(38deg) translateY(-1px)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:rotate(-38deg) translateY(1px)}
+.nav-mob{display:none;position:fixed;inset:0;top:0;background:var(--ink);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;opacity:0;pointer-events:none;transition:opacity .35s}
+.nav-mob.open{opacity:1;pointer-events:all}
+.nav-mob a{font-family:var(--font-display);font-size:clamp(1.5rem,4vw,2.2rem);font-weight:400;font-style:italic;color:var(--white);text-decoration:none;transition:color .2s}
+.nav-mob a:hover{color:var(--gold)}
+
+/* PAGE HERO */
+.ph{position:relative;height:clamp(520px,78vh,820px);display:flex;align-items:flex-end;overflow:hidden}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,24,.25) 0%,rgba(26,26,24,.08) 35%,rgba(26,26,24,.55) 70%,rgba(26,26,24,.82) 100%)}
+.ph-content{position:relative;padding:clamp(2.5rem,6vw,5rem) clamp(1.5rem,6vw,5rem)}
+.breadcrumb{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(253,252,249,.55);margin-bottom:1rem}
+.breadcrumb a{color:var(--gold);text-decoration:none;transition:color .2s}
+.breadcrumb a:hover{color:var(--gold-light)}
+.ph h1{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,5rem);font-weight:400;color:var(--white);line-height:1.05;margin-bottom:.6rem}
+.ph h1 em{font-style:italic;color:var(--gold-light)}
+.ph-sub{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(253,252,249,.6);font-weight:500}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-body);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:.9rem 2rem;border:none;cursor:pointer;transition:transform .25s var(--ease-out),box-shadow .25s;position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);transform:translateX(-101%);transition:transform .4s var(--ease-out)}
+.btn:hover::before{transform:translateX(0)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.btn-primary{background:var(--gold);color:var(--ink)}
+.btn-primary:hover{box-shadow:0 8px 32px rgba(184,150,90,.4)}
+.btn-outline{background:transparent;color:var(--white);border:1px solid rgba(253,252,249,.5)}
+.btn-outline:hover{border-color:var(--white)}
+.btn-dark{background:var(--ink);color:var(--white)}
+.btn-ghost{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.btn-ghost:hover{background:var(--gold);color:var(--ink)}
+
+/* SECTIONS */
+section{padding:clamp(4rem,8vw,7rem) clamp(1.5rem,6vw,5rem)}
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--gold)}
+h2.st{font-family:var(--font-display);font-size:clamp(1.9rem,4vw,3rem);font-weight:400;line-height:1.15;margin-bottom:1.2rem;color:var(--ink)}
+h2.st em{font-style:italic;color:var(--moss)}
+.lead{font-size:1.05rem;color:var(--stone);max-width:560px;line-height:1.7;font-weight:300}
+.body-t{font-size:1rem;color:var(--ink-soft);line-height:1.75;font-weight:300;max-width:620px}
+.divider{width:48px;height:1px;background:var(--gold);margin:2rem 0}
+
+/* ROOM INTRO */
+.room-intro{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--white)}
+.room-intro-content{padding:clamp(3.5rem,7vw,6rem) clamp(2rem,5vw,5rem);display:flex;flex-direction:column;justify-content:center}
+.room-intro-img{overflow:hidden;min-height:520px;position:relative}
+.room-intro-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s var(--ease-out)}
+.room-intro-img:hover img{transform:scale(1.04)}
+.room-price{display:flex;align-items:baseline;gap:.5rem;margin:1.8rem 0}
+.price-from{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);font-weight:500}
+.price-num{font-family:var(--font-display);font-size:2.2rem;font-weight:400;color:var(--moss);line-height:1}
+.price-per{font-size:.78rem;color:var(--stone);font-weight:400}
+.room-feats{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 2rem}
+.rf{font-size:.72rem;padding:.35rem .8rem;background:var(--cream);color:var(--stone);letter-spacing:.06em;font-weight:500}
+
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:var(--ink)}
+.gallery-grid .g-item{overflow:hidden;aspect-ratio:4/3}
+.gallery-grid .g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease-out)}
+.gallery-grid .g-item:hover img{transform:scale(1.06)}
+
+/* AMENITIES */
+.amenity-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--ink);margin-top:3rem}
+.amenity-item{background:var(--white);padding:1.8rem 1.5rem;display:flex;flex-direction:column;gap:.5rem}
+.amenity-icon{width:28px;height:28px;color:var(--gold);flex-shrink:0}
+.amenity-icon svg{width:100%;height:100%}
+.amenity-label{font-family:var(--font-display);font-size:1rem;font-weight:400;color:var(--ink);line-height:1.2}
+.amenity-note{font-size:.8rem;color:var(--stone);font-weight:300;line-height:1.5}
+
+/* MICHELIN STRIP */
+.mich-strip{background:var(--ink);padding:clamp(3rem,6vw,5rem) clamp(1.5rem,6vw,5rem);display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center}
+.mich-strip-icon{flex-shrink:0}
+.mich-strip-text .eyebrow{color:var(--gold)}
+.mich-strip-text .eyebrow::before{background:var(--gold)}
+.mich-strip-text h3{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:400;color:var(--white);line-height:1.2;margin-bottom:.8rem}
+.mich-strip-text h3 em{font-style:italic;color:var(--gold-light)}
+.mich-strip-text p{font-size:.95rem;color:rgba(253,252,249,.68);font-weight:300;line-height:1.7;max-width:580px}
+
+/* INCLUDES BAR */
+.includes-bar{background:var(--ink);color:var(--white);text-align:center;padding:2.5rem clamp(1.5rem,6vw,5rem)}
+.includes-bar p{font-family:var(--font-display);font-size:1.05rem;color:rgba(253,252,249,.75);margin-bottom:1.5rem;font-weight:300;font-style:italic}
+.includes-dots{display:flex;justify-content:center;flex-wrap:wrap;gap:.4rem 1.2rem;margin-bottom:2rem}
+.inc-dot{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(253,252,249,.5);font-weight:500;display:flex;align-items:center;gap:.5rem}
+.inc-dot::before{content:'';display:block;width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* ALSO EXPLORE */
+.also-explore{background:var(--cream-dark);padding:clamp(3.5rem,7vw,6rem) clamp(1.5rem,6vw,5rem)}
+.room-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--ink);margin-top:2.5rem}
+.rc{background:var(--white);overflow:hidden;text-decoration:none;display:block;transition:background .25s}
+.rc-img{aspect-ratio:4/3;overflow:hidden}
+.rc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease-out)}
+.rc:hover .rc-img img{transform:scale(1.07)}
+.rc-body{padding:1.6rem}
+.rc-type{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.4rem}
+.rc h4{font-family:var(--font-display);font-size:1.2rem;font-weight:400;color:var(--ink);margin-bottom:.5rem;transition:color .25s}
+.rc:hover h4{color:var(--moss)}
+.rc p{font-size:.85rem;color:var(--stone);line-height:1.6;font-weight:300}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(253,252,249,.65);padding:clamp(3rem,7vw,6rem) clamp(1.5rem,6vw,5rem) 2rem}
+.fg4{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(253,252,249,.08);margin-bottom:2rem}
+.fb{font-family:var(--font-display);font-size:1.4rem;font-weight:500;color:var(--white);margin-bottom:.6rem}
+.fbs{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+footer p{font-size:.88rem;line-height:1.7;font-weight:300}
+.fc h4{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--white);margin-bottom:1rem}
+.fc ul{list-style:none}.fc li{margin-bottom:.55rem}
+.fc a{font-size:.88rem;color:rgba(253,252,249,.6);text-decoration:none;transition:color .2s;font-weight:300}
+.fc a:hover{color:var(--gold)}
+.fbot{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;flex-wrap:wrap;gap:1rem}
+
+/* UTILS */
+.r{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.r.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.22s}.d3{transition-delay:.36s}.d4{transition-delay:.5s}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-pill-links{display:none}.nav-toggle{display:flex}.nav-mob{display:flex}
+  .room-intro{grid-template-columns:1fr}
+  .room-intro-img{min-height:360px;order:-1}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .amenity-grid{grid-template-columns:repeat(3,1fr)}
+  .fg4{grid-template-columns:1fr 1fr}
+  .mich-strip{grid-template-columns:1fr}
+  .room-cards{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .gallery-grid{grid-template-columns:1fr}
+  .amenity-grid{grid-template-columns:1fr 1fr}
+  .fg4{grid-template-columns:1fr;gap:2rem}
+  .room-cards{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div id="curtain"></div>
+
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">The Blonde Hedgehog</a>
+  <ul class="nav-pill-links">
+    <li><a href="stay.html" class="active">Stay</a></li>
+    <li><a href="#">Eat &amp; Drink</a><div class="nav-drop"><a href="restaurant.html">The Restaurant</a><a href="menu.html">The Menu</a></div></li>
+    <li><a href="#">The Island</a><div class="nav-drop"><a href="island.html">The Island</a><a href="experiences.html">Experiences</a><a href="historical.html">Historical</a><a href="activities.html">Activities</a></div></li>
+    <li><a href="#">Reserve</a><div class="nav-drop"><a href="reservation.html">Reservation</a><a href="staycations.html">Staycations</a><a href="weddings.html">Weddings</a></div></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="reservation.html" class="nav-cta">Book a Stay</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mob" id="navMob">
+  <a href="index.html">Home</a>
+  <a href="stay.html">Stay With Us</a>
+  <a href="restaurant.html">Restaurant</a>
+  <a href="menu.html">The Menu</a>
+  <a href="island.html">The Island</a>
+  <a href="experiences.html">Experiences</a>
+  <a href="historical.html">Historical</a>
+  <a href="activities.html">Activities</a>
+  <a href="weddings.html">Weddings</a>
+  <a href="staycations.html">Staycations</a>
+  <a href="reservation.html">Book a Stay</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="ph">
+  <img src="spikes-room-image-1.webp" alt="Spikes — The Blonde Hedgehog" id="heroImg">
+  <div class="ph-overlay"></div>
+  <div class="ph-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <a href="stay.html">Stay</a> › Spikes</div>
+    <h1><em>Spikes</em></h1>
+    <div class="ph-sub">Standard Double · The Blonde Hedgehog · Top Floor</div>
+  </div>
+</div>
+
+<!-- ROOM INTRO -->
+<div class="room-intro">
+  <div class="room-intro-content">
+    <div class="eyebrow r">The Blonde Hedgehog</div>
+    <h2 class="st r d1">A room shaped by<br>the <em>roofline above it</em>.</h2>
+    <p class="body-t r d2">Spikes occupies the loft of the original 18th-century inn — a room defined by the building's own roofline rather than imposed upon it. Original dormer features, sloping eaves and an open-plan layout give the space a character that no amount of renovation could manufacture. A generous double bed sits at the room's centre; a large walk-in shower anchors the en-suite; and the top-floor position means the outside world stays quietly below.</p>
+    <div class="divider r d3"></div>
+    <div class="room-price r d3">
+      <span class="price-from">From</span>
+      <span class="price-num">£170</span>
+      <span class="price-per">per night</span>
+    </div>
+    <div class="room-feats r d3">
+      <span class="rf">Standard Double Room</span>
+      <span class="rf">Top Floor</span>
+      <span class="rf">Walk-in Shower</span>
+    </div>
+    <div class="r d4" style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="reservation.html" class="btn btn-primary">Book This Room →</a>
+      <a href="stay.html" class="btn btn-ghost">All Rooms</a>
+    </div>
+  </div>
+  <div class="room-intro-img r d1">
+    <img src="spikes-room-image-3.webp" alt="Spikes room at The Blonde Hedgehog" loading="lazy">
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div style="background:var(--cream);padding:clamp(3rem,6vw,5rem) clamp(1.5rem,6vw,5rem)">
+  <div class="eyebrow r">The Room</div>
+  <p class="lead r d1" style="margin-bottom:2rem">A room with its own geometry — dormer light, sloped eaves and an open plan that makes the most of every inch.</p>
+</div>
+<div class="gallery-grid" id="spikesgallery">
+  <div class="g-item r"><img src="spikes-room-image-1.webp" alt="Spikes" loading="lazy"></div>
+  <div class="g-item r d1"><img src="spikes-room-image-2.webp" alt="Spikes" loading="lazy"></div>
+  <div class="g-item r d2"><img src="spikes-room-image-3.webp" alt="Spikes" loading="lazy"></div>
+  <div class="g-item r"><img src="spikes-room-image-4.webp" alt="Spikes" loading="lazy"></div>
+</div>
+
+<!-- AMENITIES -->
+<section style="background:var(--white)">
+  <div class="eyebrow r">What's Included</div>
+  <h2 class="st r d1">Everything you <em>need</em>,<br>nothing you don't.</h2>
+  <div class="amenity-grid r d2">
+
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><line x1="9" y1="22" x2="9" y2="12"/><line x1="15" y1="22" x2="15" y2="12"/></svg></div>
+      <div class="amenity-label">Top Floor</div>
+      <div class="amenity-note">Loft of the original 18th-century inn</div>
+    </div>
+
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <div class="amenity-label">Flat Screen Television</div>
+      <div class="amenity-note">With streaming services</div>
+    </div>
+
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M4 12a2 2 0 0 1-2-2V6h20v4a2 2 0 0 1-2 2M4 12v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/><line x1="9" y1="6" x2="9" y2="3"/><line x1="15" y1="6" x2="15" y2="3"/></svg></div>
+      <div class="amenity-label">Walk-in Shower</div>
+      <div class="amenity-note">Large en-suite walk-in shower</div>
+    </div>
+
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+      <div class="amenity-label">Luxury Amenities by Plum &amp; Ashby</div>
+      <div class="amenity-note">Premium toiletries throughout</div>
+    </div>
+
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+      <div class="amenity-label">Standard Double Bedroom</div>
+      <div class="amenity-note">Generous double bed with open-plan layout</div>
+    </div>
+
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V12a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"/><path d="M2 22h20"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg></div>
+      <div class="amenity-label">En-Suite Bathroom</div>
+      <div class="amenity-note">Private bathroom with premium fixtures</div>
+    </div>
+
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+      <div class="amenity-label">Complimentary Tea &amp; Coffee</div>
+      <div class="amenity-note">Refreshed daily</div>
+    </div>
+
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="5" rx="1"/><rect x="14" y="3" width="7" height="11" rx="1"/><rect x="3" y="12" width="7" height="9" rx="1"/><rect x="14" y="18" width="7" height="3" rx="1"/></svg></div>
+      <div class="amenity-label">Original Dormer Features</div>
+      <div class="amenity-note">Period character unique to the top floor</div>
+    </div>
+
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+      <div class="amenity-label">Open-Plan Layout</div>
+      <div class="amenity-note">Bedroom and living space in one generous room</div>
+    </div>
+
+    <div class="amenity-item">
+      <div class="amenity-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+      <div class="amenity-label">Complimentary Wireless Internet Access</div>
+      <div class="amenity-note">Throughout the hotel</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MICHELIN MENTION -->
+<div class="mich-strip r">
+  <div class="mich-strip-icon">
+    <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+  </div>
+  <div class="mich-strip-text">
+    <div class="eyebrow">Michelin Key 2025</div>
+    <h3>A <em>recognised standard</em><br>of exceptional hospitality.</h3>
+    <p>The Blonde Hedgehog holds a Michelin Key — awarded to hotels that offer a genuinely outstanding experience. It is one of only two Michelin Key hotels in the entire Channel Islands, and a reflection of the care that goes into every room, every meal, and every stay.</p>
+  </div>
+</div>
+
+<!-- INCLUDES BAR -->
+<div class="includes-bar">
+  <p>Every stay at The Blonde Hedgehog includes the following as standard</p>
+  <div class="includes-dots">
+    <span class="inc-dot">Nespresso</span>
+    <span class="inc-dot">In-room iPad</span>
+    <span class="inc-dot">EcoKnit Robes &amp; Towels</span>
+    <span class="inc-dot">Plum &amp; Ashby Toiletries</span>
+    <span class="inc-dot">Complimentary WiFi</span>
+  </div>
+  <a href="reservation.html" class="btn btn-primary">Book Spikes →</a>
+</div>
+
+<!-- ALSO EXPLORE -->
+<div class="also-explore">
+  <div class="eyebrow r">Also at The Blonde Hedgehog</div>
+  <h2 class="st r d1">More rooms to <em>explore</em>.</h2>
+  <div class="room-cards r d2">
+    <a href="burrow-room.html" class="rc">
+      <div class="rc-img"><img src="stay-page-burrow-room.webp" alt="The Burrow" loading="lazy"></div>
+      <div class="rc-body">
+        <div class="rc-type">The Blonde Hedgehog</div>
+        <h4>The Burrow</h4>
+        <p>First-floor deluxe double with freestanding bathtub, walk-in shower and original fireplace.</p>
+      </div>
+    </a>
+    <a href="stay.html" class="rc">
+      <div class="rc-img"><img src="stay-page-the-den-room.webp" alt="The Den" loading="lazy"></div>
+      <div class="rc-body">
+        <div class="rc-type">The Blonde Hedgehog</div>
+        <h4>The Den</h4>
+        <p>First-floor deluxe double with freestanding bathtub and walk-in shower.</p>
+      </div>
+    </a>
+    <a href="stay.html" class="rc">
+      <div class="rc-img"><img src="stay-page-le-huret-suite-room.webp" alt="Le Huret Suite" loading="lazy"></div>
+      <div class="rc-body">
+        <div class="rc-type">Clarence House</div>
+        <h4>Le Huret Suite</h4>
+        <p>Double suite with freestanding bathtub and separate lounge area.</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="fg4">
+    <div>
+      <div class="fb">The Blonde Hedgehog</div>
+      <div class="fbs"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg> Michelin Key 2025 · Alderney, Channel Islands</div>
+      <p>A Michelin Key boutique hotel across four restored historic buildings in the heart of Saint Anne. Farm-to-table dining, nine rooms &amp; suites, and two private houses.<br><br>One of only 2 Michelin Key hotels in the entire Channel Islands.</p>
+    </div>
+    <div class="fc"><h4>Stay &amp; Dine</h4><ul>
+      <li><a href="stay.html">Rooms &amp; Suites</a></li>
+      <li><a href="restaurant.html">The Restaurant</a></li>
+      <li><a href="menu.html">The Menu</a></li>
+      <li><a href="reservation.html">Make a Reservation</a></li>
+      <li><a href="staycations.html">Staycation Offers</a></li>
+      <li><a href="weddings.html">Weddings</a></li>
+    </ul></div>
+    <div class="fc"><h4>The Island</h4><ul>
+      <li><a href="island.html">The Island</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="historical.html">Historical</a></li>
+      <li><a href="activities.html">Activities</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="getting-to-us.html">Getting To Us</a></li>
+    </ul></div>
+    <div class="fc"><h4>Contact</h4><ul>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="mailto:reservations@blondehedgehog.com">reservations@blondehedgehog.com</a></li>
+      <li><a href="tel:+441481823230">+44 (0)1481 823230</a></li>
+      <li><a href="https://wa.me/447781135242">WhatsApp Us</a></li>
+      <li style="color:rgba(253,252,249,.4);font-size:.84rem;margin-top:.5rem">Le Huret, Saint Anne<br>Alderney GY9 3UY</li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span>© 2025 The Blonde Hedgehog Limited.</span>
+    <span style="display:flex;gap:1.5rem;flex-wrap:wrap">
+      <a href="about.html" style="color:rgba(253,252,249,.5);text-decoration:none;font-size:.78rem">About Us</a>
+      <a href="sustainability.html" style="color:rgba(253,252,249,.5);text-decoration:none;font-size:.78rem">Sustainability</a>
+      <a href="privacy.html" style="color:rgba(253,252,249,.5);text-decoration:none;font-size:.78rem">Privacy Policy</a>
+      <a href="terms.html" style="color:rgba(253,252,249,.5);text-decoration:none;font-size:.78rem">Terms &amp; Conditions</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+const curtain=document.getElementById('curtain');
+function go(href){
+  if(!href||href.startsWith('#')||href.startsWith('mailto:')||href.startsWith('tel:')||href.startsWith('http'))return false;
+  curtain.classList.add('in');
+  setTimeout(()=>{location.href=href},520);
+  return true;
+}
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href]');
+  if(!a)return;
+  if(go(a.getAttribute('href')))e.preventDefault();
+});
+window.addEventListener('pageshow',()=>{
+  curtain.style.transition='none';
+  curtain.classList.remove('in','out');
+  void curtain.offsetHeight;
+  curtain.style.transition='';
+});
+const nav=document.getElementById('mainNav');
+let lastY=0;
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  if(y<80){nav.classList.remove('hidden');}
+  else if(y>lastY+4){nav.classList.add('hidden');}
+  else if(y<lastY-4){nav.classList.remove('hidden');}
+  lastY=y;
+},{passive:true});
+const tog=document.querySelector('.nav-toggle'),mob=document.getElementById('navMob');
+if(tog)tog.addEventListener('click',()=>{
+  tog.classList.toggle('open');mob.classList.toggle('open');
+  document.body.style.overflow=mob.classList.contains('open')?'hidden':'';
+});
+const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ob.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.r').forEach(el=>ob.observe(el));
+
+// Adaptive gallery: fills last row cleanly regardless of image count
+function adaptGallery(){
+  const grid=document.getElementById('spikesgallery');
+  if(!grid)return;
+  const items=Array.from(grid.querySelectorAll('.g-item'));
+  const n=items.length;
+  if(n===0)return;
+  items.forEach(i=>{i.style.gridColumn='';});
+  const w=window.innerWidth;
+  const cols=w<=600?1:w<=900?2:3;
+  const activeCols=Math.min(cols,n);
+  if(activeCols<cols){
+    grid.style.gridTemplateColumns=`repeat(${activeCols},1fr)`;
+  } else {
+    grid.style.gridTemplateColumns='';
+  }
+  if(activeCols>1){
+    const rem=n%activeCols;
+    if(rem===1){items[n-1].style.gridColumn=`span ${activeCols}`;}
+    else if(rem===2&&activeCols===3){items[n-1].style.gridColumn='span 2';}
+  }
+}
+adaptGallery();
+let rsz;
+window.addEventListener('resize',()=>{clearTimeout(rsz);rsz=setTimeout(adaptGallery,150);},{passive:true});
+</script>
+</body>
+</html>

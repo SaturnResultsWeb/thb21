@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-01T00:00:00Z",
+  "title": "Design System: The Blonde Hedgehog",
+  "extensions": {
+    "colorMeta": {
+      "gold":       { "role": "primary",   "displayName": "Harbour Brass",     "canonical": "oklch(65% 0.095 70)",  "tonalRamp": ["oklch(15% 0.04 70)","oklch(25% 0.06 70)","oklch(35% 0.07 70)","oklch(45% 0.085 70)","oklch(55% 0.09 70)","oklch(65% 0.095 70)","oklch(75% 0.088 75)","oklch(88% 0.055 75)"] },
+      "gold-light": { "role": "primary",   "displayName": "Morning Brass",     "canonical": "oklch(75% 0.088 75)",  "tonalRamp": ["oklch(20% 0.04 75)","oklch(30% 0.06 75)","oklch(40% 0.075 75)","oklch(50% 0.085 75)","oklch(60% 0.09 75)","oklch(70% 0.09 75)","oklch(75% 0.088 75)","oklch(88% 0.055 75)"] },
+      "moss":       { "role": "secondary", "displayName": "Island Moss",       "canonical": "oklch(24% 0.035 145)", "tonalRamp": ["oklch(10% 0.02 145)","oklch(16% 0.028 145)","oklch(24% 0.035 145)","oklch(33% 0.04 145)","oklch(42% 0.042 145)","oklch(54% 0.045 145)","oklch(68% 0.04 145)","oklch(84% 0.025 145)"] },
+      "cream":      { "role": "neutral",   "displayName": "Warm Island Linen", "canonical": "oklch(95% 0.012 80)",  "tonalRamp": ["oklch(30% 0.01 80)","oklch(45% 0.01 80)","oklch(58% 0.01 80)","oklch(70% 0.01 80)","oklch(80% 0.011 80)","oklch(87% 0.012 80)","oklch(91% 0.018 80)","oklch(95% 0.012 80)"] },
+      "cream-dark": { "role": "neutral",   "displayName": "Sun-Faded Linen",   "canonical": "oklch(91% 0.018 80)",  "tonalRamp": ["oklch(25% 0.01 80)","oklch(38% 0.012 80)","oklch(50% 0.014 80)","oklch(62% 0.015 80)","oklch(73% 0.016 80)","oklch(82% 0.017 80)","oklch(87% 0.018 80)","oklch(91% 0.018 80)"] },
+      "ink":        { "role": "neutral",   "displayName": "Night Harbour",     "canonical": "oklch(13% 0.004 100)", "tonalRamp": ["oklch(13% 0.004 100)","oklch(20% 0.005 100)","oklch(28% 0.006 100)","oklch(38% 0.007 100)","oklch(50% 0.007 100)","oklch(63% 0.006 100)","oklch(76% 0.005 100)","oklch(90% 0.004 100)"] },
+      "ink-soft":   { "role": "neutral",   "displayName": "Dusk Slate",        "canonical": "oklch(25% 0.006 100)", "tonalRamp": ["oklch(13% 0.004 100)","oklch(25% 0.006 100)","oklch(35% 0.007 100)","oklch(46% 0.007 100)","oklch(58% 0.006 100)","oklch(70% 0.006 100)","oklch(82% 0.005 100)","oklch(93% 0.004 100)"] },
+      "stone":      { "role": "neutral",   "displayName": "Saltstone",         "canonical": "oklch(55% 0.028 55)",  "tonalRamp": ["oklch(18% 0.015 55)","oklch(28% 0.02 55)","oklch(38% 0.024 55)","oklch(48% 0.027 55)","oklch(55% 0.028 55)","oklch(65% 0.025 55)","oklch(76% 0.02 55)","oklch(88% 0.012 55)"] },
+      "white":      { "role": "neutral",   "displayName": "Bleached Cotton",   "canonical": "oklch(99% 0.004 80)",  "tonalRamp": ["oklch(20% 0.003 80)","oklch(35% 0.004 80)","oklch(50% 0.004 80)","oklch(65% 0.004 80)","oklch(78% 0.004 80)","oklch(88% 0.004 80)","oklch(94% 0.004 80)","oklch(99% 0.004 80)"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display — Spectral", "purpose": "Emotional weight: italic emphasis in headlines, card titles, pull-quote sections, footer brand name. Always italic; never roman on its own." },
+      "headline": { "displayName": "Headline — Jost",    "purpose": "Page-level hero H1. Always weight 300. Paired with Spectral italic em for emphasis in Morning Brass." },
+      "title":    { "displayName": "Title — Jost",       "purpose": "Section-level H2 headings. Always weight 300. May include Spectral italic em for Island Moss emphasis." },
+      "body":     { "displayName": "Body — Jost",        "purpose": "Long-form copy. Weight 300. Hard cap at 65–75ch line length." },
+      "label":    { "displayName": "Label — Jost",       "purpose": "Eyebrow labels, nav links, button text, category tags, vertical accordion labels. Always uppercase, always with generous letter-spacing." }
+    },
+    "shadows": [
+      { "name": "nav-ambient",    "value": "0 4px 32px rgba(0,0,0,0.35)",        "purpose": "Floating pill nav separation from hero content beneath. Fixed — does not change on interaction." },
+      { "name": "cta-glow",       "value": "0 8px 32px rgba(184,150,90,0.4)",    "purpose": "Primary button hover only. Warm Harbour Brass diffusion confirming the primary action." },
+      { "name": "focus-halo",     "value": "0 0 0 4px rgba(184,150,90,0.2)",     "purpose": "Accompanies the 2px Harbour Brass :focus-visible outline on buttons. Glow without noise at rest." }
+    ],
+    "motion": [
+      { "name": "ease-out",    "value": "cubic-bezier(0.16, 1, 0.3, 1)",    "purpose": "Standard UI interactions: reveals, button hover, nav transitions, dropdown entry." },
+      { "name": "ease-io",     "value": "cubic-bezier(0.87, 0, 0.13, 1)",   "purpose": "Page curtain transitions only — heavy, emphatic." },
+      { "name": "ease-drawer", "value": "cubic-bezier(0.32, 0.72, 0, 1)",   "purpose": "Horizontal accordion flex expansion. Mimics iOS drawer feel." },
+      { "name": "hero-ken",    "value": "transform 9s ease-out",             "purpose": "Hero image slow Ken Burns: scale(1.08) to scale(1.0) on page load." },
+      { "name": "reveal",      "value": "opacity 0.7s ease-out, transform 0.7s ease-out", "purpose": "Intersection Observer scroll reveals. Stagger classes: d1=0.12s, d2=0.24s, d3=0.38s, d4=0.52s." }
+    ],
+    "breakpoints": [
+      { "name": "sm",  "value": "640px",  "notes": "Mobile accordion collapses to vertical stack; accordion content always visible." },
+      { "name": "md",  "value": "900px",  "notes": "Nav collapses: pill links hidden, hamburger shown, mobile overlay active." },
+      { "name": "lg",  "value": "1100px", "notes": "Bento grid reflows: main card spans full 12 cols, remaining two split 6/6." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The definitive action. Sharp corners, Harbour Brass fill, shimmer on hover, lift and depress on press.",
+      "html": "<button class=\"ds-btn-primary\">Book Direct</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Jost', system-ui, sans-serif; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; padding: 0.9rem 2.2rem; border: none; cursor: pointer; border-radius: 0; background: #B8965A; color: #1A1A18; position: relative; overflow: hidden; transition: transform 0.2s cubic-bezier(0.16,1,0.3,1), box-shadow 0.2s; } .ds-btn-primary::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.11); transform: translateX(-101%); transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary:hover::before { transform: translateX(0); } .ds-btn-primary:hover { background: #D4AF7A; color: #1A1A18; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(184,150,90,0.4); } .ds-btn-primary:active { transform: scale(0.97); } .ds-btn-primary:focus-visible { outline: 2px solid #B8965A; outline-offset: 3px; box-shadow: 0 0 0 4px rgba(184,150,90,0.2); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Used on dark/hero surfaces. Transparent with semi-transparent white border; border strengthens to full white on hover.",
+      "html": "<button class=\"ds-btn-outline\">Explore Rooms</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Jost', system-ui, sans-serif; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.9rem 2.2rem; border: 1px solid rgba(253,252,249,0.45); border-radius: 0; cursor: pointer; background: transparent; color: #FDFCF9; position: relative; overflow: hidden; transition: transform 0.2s cubic-bezier(0.16,1,0.3,1), border-color 0.2s; } .ds-btn-outline::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.11); transform: translateX(-101%); transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); } .ds-btn-outline:hover::before { transform: translateX(0); } .ds-btn-outline:hover { border-color: #FDFCF9; transform: translateY(-2px); } .ds-btn-outline:active { transform: scale(0.97); } .ds-btn-outline:focus-visible { outline: 2px solid #B8965A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Tertiary / enquiry actions. Transparent with Harbour Brass border and text; fills to Harbour Brass on hover.",
+      "html": "<button class=\"ds-btn-ghost\">Send Enquiry</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Jost', system-ui, sans-serif; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.9rem 2.2rem; border: 1px solid #B8965A; border-radius: 0; cursor: pointer; background: transparent; color: #B8965A; position: relative; overflow: hidden; transition: background 0.2s, color 0.2s, transform 0.2s cubic-bezier(0.16,1,0.3,1); } .ds-btn-ghost:hover { background: #B8965A; color: #1A1A18; transform: translateY(-2px); } .ds-btn-ghost:active { transform: scale(0.97); } .ds-btn-ghost:focus-visible { outline: 2px solid #B8965A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Eyebrow Label",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Section-opening label. Jost 600 uppercase with flanking 1px Harbour Brass hairlines.",
+      "html": "<p class=\"ds-eyebrow\">The Hotel</p>",
+      "css": ".ds-eyebrow { font-family: 'Jost', system-ui, sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #B8965A; display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.9rem; } .ds-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: #B8965A; } .ds-eyebrow--flanked::after { content: ''; display: block; width: 20px; height: 1px; background: #B8965A; }"
+    },
+    {
+      "name": "Bento Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Image-backed content card used in the 12-column bento grid. Sharp corners, gradient overlay, hover image scale.",
+      "html": "<div class=\"ds-bento-card\"><img src=\"https://picsum.photos/seed/alderney/800/600\" alt=\"\"><div class=\"ds-bento-overlay\"></div><div class=\"ds-bento-content\"><p class=\"ds-bento-tag\">Dining</p><h3>Farm to table, island to plate</h3><p>Seasonal produce from Alderney's own farms, cooked with intent.</p><a href=\"#\" class=\"ds-bento-link\">Discover more <svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 6h8M7 3l3 3-3 3\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a></div></div>",
+      "css": ".ds-bento-card { position: relative; overflow: hidden; cursor: default; background: #1A1A18; min-height: 520px; } .ds-bento-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(0.16,1,0.3,1), filter 0.9s; transform-origin: center; } .ds-bento-card:hover img { transform: scale(1.06); filter: brightness(0.8); } .ds-bento-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,24,0.92) 0%, rgba(26,26,24,0.15) 55%); } .ds-bento-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; } .ds-bento-tag { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: #B8965A; font-weight: 600; margin-bottom: 0.4rem; font-family: 'Jost', system-ui, sans-serif; } .ds-bento-card h3 { font-family: 'Spectral', Georgia, serif; font-weight: 400; color: #FDFCF9; line-height: 1.18; margin-bottom: 0.5rem; font-size: clamp(1.5rem, 2.8vw, 2.2rem); } .ds-bento-card p { font-size: 0.84rem; color: rgba(253,252,249,0.7); font-weight: 300; line-height: 1.55; font-family: 'Jost', system-ui, sans-serif; } .ds-bento-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.8rem; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: #B8965A; text-decoration: none; transition: gap 0.22s, color 0.2s; font-family: 'Jost', system-ui, sans-serif; } .ds-bento-link:hover { gap: 0.8rem; color: #D4AF7A; } .ds-bento-link:focus-visible { outline: 2px solid #B8965A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Floating Pill Nav",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Fixed floating pill navigation. Solid Night Harbour background (no backdrop-filter). Pill nav CTA in Harbour Brass.",
+      "html": "<nav class=\"ds-nav\"><a href=\"/\" class=\"ds-nav-logo\">The Blonde Hedgehog</a><ul class=\"ds-nav-links\"><li><a href=\"/rooms\">Rooms</a></li><li><a href=\"/dining\">Dining</a></li><li><a href=\"/island\">Alderney</a></li></ul><a href=\"/book\" class=\"ds-nav-cta\">Book Now</a></nav>",
+      "css": ".ds-nav { position: fixed; top: 1.4rem; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 0.15rem; background: rgba(26,26,24,0.97); border: 1px solid rgba(255,255,255,0.07); border-radius: 100px; padding: 0.5rem 0.5rem 0.5rem 1.5rem; z-index: 100; white-space: nowrap; box-shadow: 0 4px 32px rgba(0,0,0,0.35); } .ds-nav-logo { font-family: 'Spectral', Georgia, serif; font-size: 0.9rem; font-weight: 500; color: #FDFCF9; text-decoration: none; margin-right: 0.8rem; letter-spacing: 0.01em; transition: color 0.2s; } .ds-nav-logo:hover { color: #B8965A; } .ds-nav-links { display: flex; align-items: center; gap: 0.1rem; list-style: none; } .ds-nav-links a { font-family: 'Jost', system-ui, sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(253,252,249,0.7); text-decoration: none; padding: 0.42rem 0.85rem; border-radius: 100px; display: block; transition: color 0.2s, background 0.2s; } .ds-nav-links a:hover { color: #FDFCF9; background: rgba(255,255,255,0.07); } .ds-nav-links a:focus-visible { outline: 2px solid #B8965A; outline-offset: 2px; } .ds-nav-cta { background: #B8965A; color: #1A1A18; padding: 0.5rem 1.25rem; font-weight: 600; border-radius: 100px; margin-left: 0.3rem; font-family: 'Jost', system-ui, sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; } .ds-nav-cta:hover { background: #D4AF7A; } .ds-nav-cta:focus-visible { outline: 2px solid #B8965A; outline-offset: 2px; }"
+    },
+    {
+      "name": "Accordion Item",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Horizontal flex accordion for rooms/experiences browser. Expands on hover with staggered content reveal.",
+      "html": "<div class=\"ds-acc-track\"><div class=\"ds-acc-item\"><img src=\"https://picsum.photos/seed/room1/600/800\" alt=\"Garden Room\"><span class=\"ds-acc-vert\">Garden Room</span><div class=\"ds-acc-bottom\"><p class=\"ds-acc-tag\">Doubles</p><h3 class=\"ds-acc-name\">Garden Room</h3><p class=\"ds-acc-desc\">A tranquil retreat overlooking the walled garden.</p><a href=\"#\" class=\"ds-acc-link\">View room <svg width=\"12\" height=\"10\" viewBox=\"0 0 12 10\" fill=\"none\"><path d=\"M1 5h10M7 1l4 4-4 4\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a></div></div></div>",
+      "css": ".ds-acc-track { display: flex; height: 560px; overflow: hidden; background: #1A1A18; gap: 2px; } .ds-acc-item { position: relative; flex: 1; min-width: 72px; overflow: hidden; transition: flex 0.75s cubic-bezier(0.32,0.72,0,1); cursor: pointer; } .ds-acc-item:hover { flex: 5.5; } .ds-acc-item img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.6); transition: transform 0.75s cubic-bezier(0.32,0.72,0,1), filter 0.75s; } .ds-acc-item:hover img { transform: scale(1.04); filter: brightness(0.42); } .ds-acc-vert { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(90deg); font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.5); white-space: nowrap; transition: opacity 0.3s 0.2s; font-family: 'Jost', system-ui, sans-serif; font-weight: 500; } .ds-acc-item:hover .ds-acc-vert { opacity: 0; transition-delay: 0s; } .ds-acc-bottom { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.8rem; background: linear-gradient(to top, rgba(26,26,24,0.95) 0%, transparent 100%); } .ds-acc-tag { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: #B8965A; font-weight: 600; margin-bottom: 0.35rem; font-family: 'Jost', system-ui, sans-serif; } .ds-acc-name { font-family: 'Spectral', Georgia, serif; font-size: 1.35rem; font-weight: 400; color: #FDFCF9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 0.5rem; } .ds-acc-desc { font-size: 0.82rem; color: rgba(253,252,249,0.68); font-weight: 400; line-height: 1.5; max-width: 320px; opacity: 0; transform: translateY(8px); transition: opacity 0.4s 0.32s, transform 0.4s 0.32s cubic-bezier(0.16,1,0.3,1); font-family: 'Jost', system-ui, sans-serif; } .ds-acc-item:hover .ds-acc-desc { opacity: 1; transform: none; } .ds-acc-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.8rem; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: #B8965A; text-decoration: none; opacity: 0; transform: translateY(6px); transition: opacity 0.35s 0.45s, transform 0.35s 0.45s, gap 0.2s; font-family: 'Jost', system-ui, sans-serif; } .ds-acc-item:hover .ds-acc-link { opacity: 1; transform: none; } .ds-acc-link:hover { gap: 0.8rem; } .ds-acc-link:focus-visible { outline: 2px solid #B8965A; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Warm Stone House",
+    "overview": "Not a hotel that impresses — a house that receives. The analogy is physical: walking into a well-loved granite building on the Atlantic edge of the Channel Islands, where the walls are honest, the light is warm, and no one is trying to perform hospitality at you. The design system inherits this quality. Space is used like silence in a good sentence: deliberately, because it earns its emptiness. Warmth comes from material choices — a brass-toned accent, linen-weight neutrals, a serif face that reads like handwriting — not from decoration.\n\nThe typographic system pairs Jost (a refined geometric sans, cool but not cold) with Spectral (a screen-optimised classical serif, warm and slightly literary). Jost carries the structural weight: headings, navigation, labels. Spectral carries the emotional weight: italic emphasis, pull quotes, card titles, the scrub quotation. The pairing creates the core brand tension — structured but not corporate, warm but not cosy.\n\nColor is restrained. The cream-and-ink base accounts for the majority of every surface. Harbour Brass appears at decision points: CTAs, active states, eyebrow labels, the scroll indicator. It is never decorative. The Island Moss surface appears once — the CTA section — as a distinct tonal register that signals arrival and action.",
+    "keyCharacteristics": [
+      "Linen-weight neutrals as the ambient surface; ink as deep structure; Harbour Brass as the single voice",
+      "Two-family type system: geometric sans for structure, classical serif for emotion",
+      "Sharp-cornered components (zero radius on buttons and cards) — confidence, not softness",
+      "Section-level spacing is generous and cinematic; components are tight within sections",
+      "Motion is choreographed but unhurried: ease-drawer for accordions, ease-out-expo for reveals"
+    ],
+    "rules": [
+      { "name": "The Brass Scarcity Rule",      "body": "Harbour Brass appears on ≤10% of any given surface. Guard it: CTAs, labels, and active states only — never as a background fill outside the nav CTA pill.",  "section": "colors" },
+      { "name": "The No-White Rule",             "body": "Pure #fff and #000 are prohibited. Every neutral is tinted warm toward the brand hue. The coldest white is #FDFCF9; the deepest ink is #1A1A18.",                    "section": "colors" },
+      { "name": "The Italic Emphasis Rule",      "body": "Spectral italic is the only permitted emphasis pattern within Jost headlines. When a heading gets an emotional beat, it gets Spectral italic in Morning Brass.",      "section": "typography" },
+      { "name": "The Weight Discipline Rule",    "body": "Display and body headings are weight 300. The system's authority comes from scale and spacing, not weight. Reserve 500–600 for labels and micro-copy only.",         "section": "typography" },
+      { "name": "The Flat-By-Default Rule",      "body": "Surfaces are flat at rest. Shadows appear only as a response to state or to physically separate a floating element. A card at rest has no shadow.",                  "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Spectral italic exclusively for emotional emphasis phrases inside Jost headlines — the em pattern is the brand's typographic handshake.",
+      "Do keep Harbour Brass (#B8965A) to ≤10% of any surface. Use it for CTAs, active states, labels, and focus rings only.",
+      "Do use sharp corners (0 border radius) on all buttons and content cards.",
+      "Do write section spacing generously: clamp(4rem, 8vw, 7rem) or larger. Sections are cinematic chapters.",
+      "Do use the bento grid's 3px Night Harbour gap as the visual divider — no extra borders or drop shadows.",
+      "Do prefix all focus states with :focus-visible, never :focus. Provide both outline and glow for buttons.",
+      "Do guard the prefers-reduced-motion media query for all transitions, animations, GSAP blocks, and scroll effects.",
+      "Do use clamp() for all display and title font sizes.",
+      "Do tint every neutral toward the brand hue — never pure #fff or #000."
+    ],
+    "donts": [
+      "Don't use backdrop-filter or glassmorphism anywhere — not on the nav, not on overlays. The nav uses a solid 97% opacity background.",
+      "Don't use gradient text (background-clip: text with gradient). Emphasis is weight, scale, and Spectral italic.",
+      "Don't use the hero-metric template: big number + small label in a stats grid. Explicitly prohibited as a SaaS cliché.",
+      "Don't place a credentials ticker or auto-scrolling marquee anywhere on the site.",
+      "Don't use side-stripe borders (border-left or border-right > 1px as a colored accent).",
+      "Don't use generic hotel chain layout conventions: Marriott/Hilton corporate templates, identical icon + heading + text card grids.",
+      "Don't drift toward over-designed boutique hotel aesthetics: black-heavy, serif-maximalist, editorial overload.",
+      "Don't drift toward quaint British B&B aesthetics: floral patterns, cottage-cosy warmth, dated serif-heavy headlines.",
+      "Don't animate CSS layout properties (height, width, padding, margin). Only transform and opacity — GPU only.",
+      "Don't use Playfair Display or Outfit. Both are training-data reflexes for luxury boutique hotel UI.",
+      "Don't add badge overlays or floating stamp icons onto hero imagery."
+    ]
+  }
+}

@@ -1,0 +1,389 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Menu · The Blonde Hedgehog, Alderney</title>
+<meta name="description" content="The daily menu at The Blonde Hedgehog restaurant — farm-to-table, sea-to-table dining in Alderney.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F5F0E8;--cream-dark:#EDE6D6;--ink:#1A1A18;--ink-soft:#3a3a36;
+  --moss:#2C3B2D;--gold:#B8965A;--gold-light:#D4AF7A;--stone:#8C7B6B;
+  --white:#FDFCF9;--font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Jost',system-ui,sans-serif;--nav-h:72px;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);--ease-io:cubic-bezier(0.87,0,0.13,1)
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--cream);color:var(--ink);font-size:16px;line-height:1.6;overflow-x:hidden}
+#curtain{position:fixed;inset:0;background:var(--ink);z-index:9999;pointer-events:none;transform:translateY(100%);transition:transform .55s var(--ease-io)}
+#curtain.in{transform:translateY(0)}#curtain.out{transform:translateY(-100%)}
+
+/* FLOATING PILL NAV */
+.nav{position:fixed;top:1.4rem;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:.15rem;background:rgba(26,26,24,.97);border:1px solid rgba(255,255,255,.07);border-radius:100px;padding:.5rem .5rem .5rem 1.5rem;z-index:100;white-space:nowrap;transition:transform .4s var(--ease-out),opacity .3s;box-shadow:0 4px 32px rgba(0,0,0,.35)}
+.nav.hidden{transform:translateX(-50%) translateY(-120%);opacity:0}
+.nav-logo{font-family:var(--font-display);font-size:.9rem;font-weight:500;color:var(--white);text-decoration:none;margin-right:.8rem;letter-spacing:.01em;transition:color .2s}
+.nav-logo:hover{color:var(--gold)}
+.nav-pill-links{display:flex;align-items:center;gap:.1rem;list-style:none;position:relative}
+.nav-pill-links>li{position:relative}
+.nav-pill-links>li>a{font-family:var(--font-body);font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,252,249,.7);text-decoration:none;padding:.42rem .85rem;border-radius:100px;display:block;transition:color .2s,background .2s}
+.nav-pill-links>li>a:hover{color:var(--white);background:rgba(255,255,255,.07)}
+.nav-pill-links>li>a.active{color:var(--gold)}
+.nav-drop{position:absolute;top:calc(100% + .6rem);left:0;background:var(--ink);border:1px solid rgba(255,255,255,.07);border-radius:12px;min-width:168px;padding:.4rem 0;opacity:0;pointer-events:none;transform:translateY(6px) scale(.97);transform-origin:top left;transition:opacity .2s,transform .2s var(--ease-out)}
+.nav-drop::before{content:'';position:absolute;top:-.6rem;left:0;right:0;height:.6rem}
+.nav-pill-links>li:hover>.nav-drop{opacity:1;pointer-events:all;transform:none}
+.nav-drop a{display:block;padding:.55rem 1rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,252,249,.65);text-decoration:none;transition:color .18s,background .18s;font-weight:500}
+.nav-drop a:hover{color:var(--gold);background:rgba(255,255,255,.04)}
+.nav-cta{background:var(--gold)!important;color:var(--ink)!important;padding:.5rem 1.25rem!important;font-weight:600!important;border-radius:100px!important;margin-left:.3rem;transition:background .2s,transform .15s!important}
+.nav-cta:hover{background:var(--gold-light)!important;transform:none!important;color:var(--ink)!important}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;width:28px;height:20px;flex-direction:column;justify-content:space-between;margin-left:.5rem}
+.nav-toggle span{display:block;width:100%;height:1.5px;background:var(--white);transition:transform .35s var(--ease-out),opacity .3s;transform-origin:left center}
+.nav-toggle.open span:nth-child(1){transform:rotate(38deg) translateY(-1px)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:rotate(-38deg) translateY(1px)}
+.nav-mob{display:none;position:fixed;inset:0;top:0;background:var(--ink);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;opacity:0;pointer-events:none;transition:opacity .35s}
+.nav-mob.open{opacity:1;pointer-events:all}
+.nav-mob a{font-family:var(--font-display);font-size:clamp(1.5rem,4vw,2.2rem);font-weight:400;font-style:italic;color:var(--white);text-decoration:none;transition:color .2s}
+.nav-mob a:hover{color:var(--gold)}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:flex-end;overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 8s ease-out;transform:scale(1.06)}
+.hero-img.ken{transform:scale(1)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,24,.15) 0%,rgba(26,26,24,.08) 40%,rgba(26,26,24,.72) 100%)}
+.hero-content{position:relative;padding:clamp(3rem,8vw,6rem) clamp(1.5rem,6vw,5rem);max-width:900px}
+.hero-eyebrow{font-family:var(--font-body);font-size:.72rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem;opacity:0;transform:translateY(12px);animation:fadeUp .8s .3s var(--ease-out) forwards}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.8rem,7vw,5.5rem);font-weight:400;line-height:1.05;color:var(--white);margin-bottom:1.8rem;opacity:0;transform:translateY(20px);animation:fadeUp .9s .5s var(--ease-out) forwards}
+.hero h1 em{font-style:italic;color:var(--gold-light)}
+.hero-sub{font-size:1.05rem;color:rgba(253,252,249,.82);max-width:520px;line-height:1.65;margin-bottom:2.5rem;font-weight:300;opacity:0;transform:translateY(16px);animation:fadeUp .9s .7s var(--ease-out) forwards}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .9s .9s var(--ease-out) forwards}
+
+/* PAGE HERO */
+.ph{position:relative;height:clamp(520px,72vh,720px);display:flex;align-items:flex-end;overflow:hidden}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,24,.97) 0%,rgba(26,26,24,.97) 20%,rgba(26,26,24,.3) 48%,rgba(26,26,24,.6) 78%,rgba(26,26,24,.82) 100%)}
+.ph-content{position:relative;padding:clamp(2rem,5vw,4rem) clamp(1.5rem,6vw,5rem)}
+.breadcrumb{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(253,252,249,.55);margin-bottom:1rem}
+.breadcrumb a{color:var(--gold);text-decoration:none}
+.ph h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.8rem);font-weight:400;color:var(--white);line-height:1.1}
+.ph h1 em{font-style:italic;color:var(--gold-light)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-body);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:.9rem 2rem;border:none;cursor:pointer;transition:transform .25s var(--ease-out),box-shadow .25s;position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);transform:translateX(-101%);transition:transform .4s var(--ease-out)}
+.btn:hover::before{transform:translateX(0)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.btn-primary{background:var(--gold);color:var(--ink)}
+.btn-primary:hover{box-shadow:0 8px 32px rgba(184,150,90,.4)}
+.btn-outline{background:transparent;color:var(--white);border:1px solid rgba(253,252,249,.5)}
+.btn-outline:hover{border-color:var(--white)}
+.btn-dark{background:var(--ink);color:var(--white)}
+.btn-ghost{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.btn-ghost:hover{background:var(--gold);color:var(--ink)}
+
+/* MICHELIN */
+.mich-banner{background:var(--ink);color:var(--gold);text-align:center;padding:1rem 2rem;font-family:var(--font-body);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;display:flex;align-items:center;justify-content:center;gap:1.2rem}
+.mich-section{background:var(--ink);color:var(--white);padding:clamp(4rem,8vw,7rem) clamp(1.5rem,6vw,5rem);position:relative;overflow:hidden}
+.mich-section::before{content:'🗝';position:absolute;font-size:18rem;opacity:.03;right:-2rem;top:50%;transform:translateY(-50%);pointer-events:none}
+.mich-inner{max-width:760px}
+.mich-tag{display:inline-flex;align-items:center;gap:.6rem;background:rgba(184,150,90,.12);border:1px solid rgba(184,150,90,.3);color:var(--gold);padding:.45rem 1rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:2rem}
+.mich-section h2{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:400;line-height:1.12;margin-bottom:1.5rem}
+.mich-section h2 em{font-style:italic;color:var(--gold-light)}
+.mich-section p{color:rgba(253,252,249,.78);font-size:1.05rem;line-height:1.7;font-weight:300;margin-bottom:1.5rem}
+.mich-stats{display:flex;gap:3rem;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(253,252,249,.1);flex-wrap:wrap}
+.stat-n{font-family:var(--font-display);font-size:2.8rem;font-weight:400;color:var(--gold);line-height:1;margin-bottom:.3rem}
+.stat-l{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(253,252,249,.5)}
+
+/* SECTIONS */
+section{padding:clamp(4rem,8vw,7rem) clamp(1.5rem,6vw,5rem)}
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--gold)}
+h2.st{font-family:var(--font-display);font-size:clamp(1.9rem,4vw,3rem);font-weight:400;line-height:1.15;margin-bottom:1.2rem;color:var(--ink)}
+h2.st em{font-style:italic;color:var(--moss)}
+.lead{font-size:1.05rem;color:var(--stone);max-width:560px;line-height:1.7;font-weight:300}
+.body-t{font-size:1rem;color:var(--ink-soft);line-height:1.75;font-weight:300;max-width:620px}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5px;background:var(--ink);border:1.5px solid var(--ink)}
+.card{background:var(--white);overflow:hidden;cursor:default}
+.card-img{overflow:hidden;aspect-ratio:4/3}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease-out)}
+.card:hover .card-img img{transform:scale(1.07)}
+.card-body{padding:1.8rem}
+.card-tag{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.6rem}
+.card h3{font-family:var(--font-display);font-size:1.35rem;font-weight:400;line-height:1.2;margin-bottom:.7rem;color:var(--ink);transition:color .25s}
+.card:hover h3{color:var(--moss)}
+.card p{font-size:.9rem;color:var(--stone);line-height:1.6;font-weight:300}
+.clink{display:inline-flex;align-items:center;gap:.4rem;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--moss);text-decoration:none;margin-top:1.2rem;transition:gap .25s}
+.clink:hover{gap:.8rem}
+
+/* SPLIT */
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:480px}
+.split.rev{direction:rtl}.split.rev>*{direction:ltr}
+.split-img{overflow:hidden;position:relative}
+.split-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease-out)}
+.split:hover .split-img img{transform:scale(1.04)}
+.split-ct{display:flex;flex-direction:column;justify-content:center;padding:clamp(3rem,6vw,6rem);background:var(--white)}
+.split-ct.dark{background:var(--ink);color:var(--white)}
+.split-ct.dark h2{color:var(--white)}.split-ct.dark p{color:rgba(253,252,249,.75)}
+
+/* ROOMS */
+.rooms{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2px;background:var(--ink)}
+.rm{background:var(--white);overflow:hidden}
+.rm-img{aspect-ratio:16/10;overflow:hidden}
+.rm-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease-out)}
+.rm:hover .rm-img img{transform:scale(1.06)}
+.rm-body{padding:2rem}
+.rm-type{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.4rem}
+.rm h3{font-family:var(--font-display);font-size:1.5rem;font-weight:400;margin-bottom:.7rem;color:var(--ink)}
+.rm p{font-size:.9rem;color:var(--stone);line-height:1.65;font-weight:300;margin-bottom:1rem}
+.rm-feats{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem}
+.rf{font-size:.72rem;padding:.3rem .7rem;background:var(--cream);color:var(--stone);letter-spacing:.06em}
+.rm-price{font-family:var(--font-display);font-size:1.1rem;color:var(--moss)}
+.rm-price span{font-family:var(--font-body);font-size:.75rem;color:var(--stone);font-weight:400}
+
+/* PULLQUOTE */
+.pq{background:var(--moss);color:var(--white);padding:clamp(3.5rem,7vw,6rem) clamp(1.5rem,6vw,5rem);text-align:center}
+.pq blockquote{font-family:var(--font-display);font-size:clamp(1.4rem,3.5vw,2.3rem);font-weight:400;font-style:italic;line-height:1.4;max-width:820px;margin:0 auto 1.2rem;color:var(--white)}
+.pq blockquote::before{content:'C';color:var(--gold)}.pq blockquote::after{content:'D';color:var(--gold)}
+.pq cite{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(253,252,249,.5);font-style:normal}
+
+/* HIGHLIGHTS */
+.hl{background:var(--cream-dark);display:flex;overflow:hidden}
+.hl-item{flex:1;text-align:center;padding:2rem;border-right:1px solid rgba(26,26,24,.1)}
+.hl-item:last-child{border-right:none}
+.hl-n{font-family:var(--font-display);font-size:2.8rem;font-weight:400;color:var(--moss);line-height:1;margin-bottom:.4rem}
+.hl-l{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);font-weight:500}
+
+/* FORM */
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.fi{display:flex;flex-direction:column;gap:.45rem}
+.fi.full{grid-column:1/-1}
+.fi label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--stone)}
+.fi input,.fi select,.fi textarea{font-family:var(--font-body);font-size:.95rem;padding:.85rem 1rem;border:1px solid rgba(26,26,24,.18);background:var(--cream);color:var(--ink);outline:none;transition:border-color .25s;width:100%}
+.fi input:focus,.fi select:focus,.fi textarea:focus{border-color:var(--gold);background:var(--white)}
+.fi textarea{resize:vertical;min-height:120px}
+.finfo{background:var(--cream-dark);padding:1.8rem 2.2rem;border-left:3px solid var(--gold)}
+.finfo h3{font-family:var(--font-display);font-size:1.25rem;font-weight:400;margin-bottom:.7rem}
+.finfo p{font-size:.88rem;color:var(--stone);line-height:1.65;margin-bottom:.4rem}
+
+/* MENU PAGE */
+.ms h3{font-family:var(--font-display);font-size:1.6rem;font-weight:400;font-style:italic;color:var(--moss);margin-bottom:1.5rem;padding-bottom:.7rem;border-bottom:1px solid var(--cream-dark)}
+.mi{display:flex;justify-content:space-between;align-items:baseline;padding:.9rem 0;border-bottom:1px solid rgba(26,26,24,.06);gap:2rem}
+.mi h4{font-family:var(--font-display);font-size:1.05rem;font-weight:400;color:var(--ink);margin-bottom:.15rem}
+.mi p{font-size:.84rem;color:var(--stone);font-weight:300}
+.mp{font-family:var(--font-display);font-size:1rem;color:var(--moss);white-space:nowrap}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(253,252,249,.65);padding:clamp(3rem,7vw,6rem) clamp(1.5rem,6vw,5rem) 2rem}
+.fg4{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(253,252,249,.08);margin-bottom:2rem}
+.fb{font-family:var(--font-display);font-size:1.4rem;font-weight:500;color:var(--white);margin-bottom:.6rem}
+.fbs{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+footer p{font-size:.88rem;line-height:1.7;font-weight:300}
+.fc h4{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--white);margin-bottom:1rem}
+.fc ul{list-style:none}.fc li{margin-bottom:.55rem}
+.fc a{font-size:.88rem;color:rgba(253,252,249,.6);text-decoration:none;transition:color .2s;font-weight:300}
+.fc a:hover{color:var(--gold)}
+.fbot{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;flex-wrap:wrap;gap:1rem}
+.mich-badge{display:flex;align-items:center;gap:.6rem;color:var(--gold);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+
+/* UTILS */
+.container{max-width:1280px;margin:0 auto}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:start}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.divider{width:48px;height:1px;background:var(--gold);margin:2rem 0}
+.cd-label{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.3rem}
+.cd a,.cd p{font-family:var(--font-display);font-size:1.15rem;color:var(--ink);text-decoration:none}
+.cd a:hover{color:var(--moss)}
+.cd{margin-bottom:1.5rem}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.r.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.22s}.d3{transition-delay:.36s}.d4{transition-delay:.5s}
+
+@keyframes fadeUp{to{opacity:1;transform:none}}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-pill-links{display:none}.nav-toggle{display:flex}.nav-mob{display:flex}
+  .split{grid-template-columns:1fr}.split.rev{direction:ltr}.split-img{aspect-ratio:16/9}
+  .fg4{grid-template-columns:1fr 1fr}.cards{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}.three-col{grid-template-columns:1fr}
+  .hl{flex-direction:column}.hl-item{border-right:none;border-bottom:1px solid rgba(26,26,24,.1)}
+  .hl-item:last-child{border-bottom:none}.mich-stats{gap:2rem}.fg{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .fg4{grid-template-columns:1fr;gap:2rem}.rooms{grid-template-columns:1fr}
+  .hero-actions{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div id="curtain"></div>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">The Blonde Hedgehog</a>
+  <ul class="nav-pill-links">
+    <li><a href="stay.html">Stay</a></li>
+    <li><a href="#">Eat &amp; Drink</a><div class="nav-drop"><a href="restaurant.html">The Restaurant</a><a href="menu.html">The Menu</a></div></li>
+    <li><a href="#">The Island</a><div class="nav-drop"><a href="island.html">The Island</a><a href="experiences.html">Experiences</a><a href="historical.html">Historical</a><a href="activities.html">Activities</a></div></li>
+    <li><a href="#">Reserve</a><div class="nav-drop"><a href="reservation.html">Reservation</a><a href="staycations.html">Staycations</a><a href="weddings.html">Weddings</a></div></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="reservation.html" class="nav-cta">Book a Stay</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mob" id="navMob">
+  <a href="index.html">Home</a>
+  <a href="stay.html">Stay With Us</a>
+  <a href="restaurant.html">Restaurant</a>
+  <a href="menu.html">The Menu</a>
+  <a href="island.html">The Island</a>
+  <a href="experiences.html">Experiences</a>
+  <a href="historical.html">Historical</a>
+  <a href="activities.html">Activities</a>
+  <a href="weddings.html">Weddings</a>
+  <a href="staycations.html">Staycations</a>
+  <a href="reservation.html">Book a Stay</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<section class="ph">
+  <img src="menu-page-hero-image.webp" alt="Menu dishes">
+  <div class="ph-overlay"></div>
+  <div class="ph-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <a href="restaurant.html">Restaurant</a> › The Menu</div>
+    <h1>The <em>Menu</em>.</h1>
+  </div>
+</section>
+<section style="background:var(--white)">
+  <div class="eyebrow r">Seasonal &amp; Daily</div>
+  <h2 class="st r d1">A taste of what<br><em>awaits you</em>.</h2>
+  <p class="lead r d2" style="margin-bottom:3rem">Our menu changes daily based on what the island's farms and waters provide. The dishes below give a flavour of what Chef Stephen Scott creates. Breakfast 8am · Lunch 12noon · Dinner 6pm · Bar &amp; Den menu until 8pm.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem" class="r d2">
+    <div>
+      <div class="ms"><h3>Starters</h3>
+        <div class="mi"><div><h4>Alderney Crab on Toast</h4><p>Brown butter, chive, lemon</p></div><div class="mp">£14</div></div>
+        <div class="mi"><div><h4>Pigeon &amp; Mushroom Terrine</h4><p>Sourdough, piccalilli, cornichons</p></div><div class="mp">£12</div></div>
+        <div class="mi"><div><h4>Garden Soup of the Day</h4><p>Fresh bread from our kitchen</p></div><div class="mp">£9</div></div>
+        <div class="mi"><div><h4>Smoked Salmon Tartare</h4><p>Capers, shallot, dill, sourdough crisp</p></div><div class="mp">£13</div></div>
+      </div>
+      <div class="ms"><h3>Mains</h3>
+        <div class="mi"><div><h4>Whole Alderney Lobster</h4><p>Herb butter, fries, garden salad</p></div><div class="mp">£48</div></div>
+        <div class="mi"><div><h4>Fillet of Sea Bass</h4><p>Samphire, caper butter, new potatoes</p></div><div class="mp">£28</div></div>
+        <div class="mi"><div><h4>Alderney Beef Sirloin</h4><p>Triple-cooked chips, watercress, béarnaise</p></div><div class="mp">£36</div></div>
+        <div class="mi"><div><h4>Crispy Gochujang Chicken</h4><p>Smoked cheese slaw, pickled cucumber</p></div><div class="mp">£22</div></div>
+        <div class="mi"><div><h4>Roast Pork Belly</h4><p>Apple purée, crackling, dauphinoise</p></div><div class="mp">£26</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="ms"><h3>Puddings</h3>
+        <div class="mi"><div><h4>Peanut Parfait</h4><p>Salted caramel, chocolate soil</p></div><div class="mp">£10</div></div>
+        <div class="mi"><div><h4>Pistachio &amp; Raspberry</h4><p>Parfait, brandy snaps, raspberry coulis</p></div><div class="mp">£10</div></div>
+        <div class="mi"><div><h4>Local Cheese Selection</h4><p>Guernsey cheeses, chutney, biscuits</p></div><div class="mp">£14</div></div>
+        <div class="mi"><div><h4>Chocolate Fondant</h4><p>Vanilla ice cream, salted caramel</p></div><div class="mp">£10</div></div>
+      </div>
+      <div class="ms"><h3>Bar &amp; Light Bites</h3>
+        <div class="mi"><div><h4>Alderney Lobster Roll</h4><p>Brioche, mayo, chive</p></div><div class="mp">£18</div></div>
+        <div class="mi"><div><h4>Hedgehog Burger</h4><p>Aged Alderney beef, smoked cheddar, fries</p></div><div class="mp">£16</div></div>
+        <div class="mi"><div><h4>Garden Salad</h4><p>Seasonal leaves, herbs, house dressing</p></div><div class="mp">£12</div></div>
+        <div class="mi"><div><h4>Fish &amp; Chips</h4><p>Alderney catch, mushy peas, tartare</p></div><div class="mp">£18</div></div>
+      </div>
+      <div class="ms"><h3>Breakfast</h3>
+        <div class="mi"><div><h4>Continental Buffet</h4><p>Included with all room bookings</p></div><div class="mp">Incl.</div></div>
+        <div class="mi"><div><h4>Full Cooked Breakfast</h4><p>À la carte from our morning menu</p></div><div class="mp">À la carte</div></div>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top:2.5rem;font-size:.82rem;color:var(--stone);font-style:italic" class="r">Menu changes daily. All dietary requirements catered for — please inform us on booking. Vegetarian, vegan, gluten-free and dairy-free options always available.</p>
+  <div style="text-align:center;margin-top:3rem" class="r">
+    <a href="reservation.html" class="btn btn-primary">Reserve a Table →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="fg4">
+    <div>
+      <div class="fb">The Blonde Hedgehog</div>
+      <div class="fbs"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg> Michelin Key 2025 · Alderney, Channel Islands</div>
+      <p>A Michelin Key boutique hotel across four restored historic buildings in the heart of Saint Anne. Farm-to-table dining, nine rooms &amp; suites, and two private houses.<br><br>One of only 2 Michelin Key hotels in the entire Channel Islands.</p>
+    </div>
+    <div class="fc"><h4>Stay &amp; Dine</h4><ul>
+      <li><a href="stay.html">Rooms &amp; Suites</a></li>
+      <li><a href="restaurant.html">The Restaurant</a></li>
+      <li><a href="menu.html">The Menu</a></li>
+      <li><a href="reservation.html">Make a Reservation</a></li>
+      <li><a href="staycations.html">Staycation Offers</a></li>
+      <li><a href="weddings.html">Weddings</a></li>
+    </ul></div>
+    <div class="fc"><h4>The Island</h4><ul>
+      <li><a href="island.html">The Island</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="historical.html">Historical</a></li>
+      <li><a href="activities.html">Activities</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="getting-to-us.html">Getting To Us</a></li>
+    </ul></div>
+    <div class="fc"><h4>Contact</h4><ul>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="mailto:reservations@blondehedgehog.com">reservations@blondehedgehog.com</a></li>
+      <li><a href="tel:+441481823230">+44 (0)1481 823230</a></li>
+      <li><a href="https://wa.me/447781135242">WhatsApp Us</a></li>
+      <li style="color:rgba(253,252,249,.4);font-size:.84rem;margin-top:.5rem">Le Huret, Saint Anne<br>Alderney GY9 3UY</li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span>© 2025 The Blonde Hedgehog Limited.</span>
+    <span style="display:flex;gap:1.5rem;flex-wrap:wrap">
+      <a href="about.html" style="color:rgba(253,252,249,.5);text-decoration:none;font-size:.78rem">About Us</a>
+      <a href="sustainability.html" style="color:rgba(253,252,249,.5);text-decoration:none;font-size:.78rem">Sustainability</a>
+      <a href="privacy.html" style="color:rgba(253,252,249,.5);text-decoration:none;font-size:.78rem">Privacy Policy</a>
+      <a href="terms.html" style="color:rgba(253,252,249,.5);text-decoration:none;font-size:.78rem">Terms &amp; Conditions</a>
+    </span>
+  </div>
+</footer>
+<script>
+const curtain=document.getElementById('curtain');
+function go(href){
+  if(!href||href.startsWith('#')||href.startsWith('mailto:')||href.startsWith('tel:')||href.startsWith('http'))return false;
+  curtain.classList.add('in');
+  setTimeout(()=>{location.href=href},520);
+  return true;
+}
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href]');
+  if(!a)return;
+  if(go(a.getAttribute('href')))e.preventDefault();
+});
+window.addEventListener('pageshow',()=>{
+  curtain.style.transition='none';
+  curtain.classList.remove('in','out');
+  void curtain.offsetHeight;
+  curtain.style.transition='';
+});
+const nav=document.getElementById('mainNav');
+let lastY=0;
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  if(y<80){nav.classList.remove('hidden');}
+  else if(y>lastY+4){nav.classList.add('hidden');}
+  else if(y<lastY-4){nav.classList.remove('hidden');}
+  lastY=y;
+},{passive:true});
+const tog=document.querySelector('.nav-toggle'),mob=document.getElementById('navMob');
+if(tog)tog.addEventListener('click',()=>{
+  tog.classList.toggle('open');mob.classList.toggle('open');
+  document.body.style.overflow=mob.classList.contains('open')?'hidden':'';
+});
+const hi=document.querySelector('.hero-img');
+if(hi){
+  const go2=()=>hi.classList.add('ken');
+  hi.complete?go2():hi.addEventListener('load',go2);
+  window.addEventListener('scroll',()=>{hi.style.transform=`scale(1.06) translateY(${window.scrollY*.18}px)`},{passive:true});
+}
+const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ob.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.r').forEach(el=>ob.observe(el));
+</script>
+</body>
+</html>
