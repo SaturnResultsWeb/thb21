@@ -181,6 +181,8 @@ h2.st em{font-style:italic;color:var(--moss)}
 .finfo p{font-size:.88rem;color:var(--stone);line-height:1.65;margin-bottom:.4rem}
 
 /* MENU PAGE */
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.ms{margin-bottom:2rem}
 .ms h3{font-family:var(--font-display);font-size:1.6rem;font-weight:400;font-style:italic;color:var(--moss);margin-bottom:1.5rem;padding-bottom:.7rem;border-bottom:1px solid var(--cream-dark)}
 .mi{display:flex;justify-content:space-between;align-items:baseline;padding:.9rem 0;border-bottom:1px solid rgba(26,26,24,.06);gap:2rem}
 .mi h4{font-family:var(--font-display);font-size:1.05rem;font-weight:400;color:var(--ink);margin-bottom:.15rem}
@@ -222,7 +224,7 @@ footer p{font-size:.88rem;line-height:1.7;font-weight:300}
   .nav-pill-links{display:none}.nav-toggle{display:flex}.nav-mob{display:flex}
   .split{grid-template-columns:1fr}.split.rev{direction:ltr}.split-img{aspect-ratio:16/9}
   .fg4{grid-template-columns:1fr 1fr}.cards{grid-template-columns:1fr}
-  .two-col{grid-template-columns:1fr}.three-col{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}.three-col{grid-template-columns:1fr}.menu-grid{grid-template-columns:1fr}.ms{margin-bottom:3rem}
   .hl{flex-direction:column}.hl-item{border-right:none;border-bottom:1px solid rgba(26,26,24,.1)}
   .hl-item:last-child{border-bottom:none}.mich-stats{gap:2rem}.fg{grid-template-columns:1fr}
 }
@@ -296,7 +298,7 @@ footer p{font-size:.88rem;line-height:1.7;font-weight:300}
   <div class="eyebrow r">Seasonal &amp; Daily</div>
   <h2 class="st r d1">A taste of what<br><em>awaits you</em>.</h2>
   <p class="lead r d2" style="margin-bottom:3rem">Our menu changes daily based on what the island's farms and waters provide. The dishes below give a flavour of what Chef Stephen Scott creates. Breakfast 8am · Lunch 12noon · Dinner 6pm · Bar &amp; Den menu until 8pm.</p>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem" class="r d2">
+  <div class="menu-grid r d2">
     <div>
       <div class="ms"><h3>Starters</h3>
         <div class="mi"><div><h4>Alderney Crab on Toast</h4><p>Brown butter, chive, lemon</p></div><div class="mp">£14</div></div>
