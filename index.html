@@ -291,7 +291,7 @@ main{overflow-x:hidden;width:100%;max-width:100%}
   position:relative
 }
 .gallery-left{
-  padding:clamp(4rem,8vw,8rem) 3rem clamp(4rem,8vw,8rem) 0;
+  padding:clamp(4rem,8vw,8rem) 3rem clamp(6rem,12vw,12rem) 0;
   display:flex;flex-direction:column;justify-content:flex-start;
   align-self:start;
   position:relative
@@ -830,14 +830,16 @@ window.addEventListener('load', () => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   gsap.registerPlugin(ScrollTrigger);
 
-  // PIN LEFT COLUMN while gallery scrolls
-  ScrollTrigger.create({
-    trigger: '#gallerySection',
-    start: 'top top',
-    end: 'bottom bottom',
-    pin: '#galleryLeft',
-    pinSpacing: false
-  });
+  // PIN LEFT COLUMN while gallery scrolls (desktop only)
+  if (window.innerWidth >= 900) {
+    ScrollTrigger.create({
+      trigger: '#gallerySection',
+      start: 'top 8%',
+      end: 'bottom bottom',
+      pin: '#galleryLeft',
+      pinSpacing: false
+    });
+  }
 
   // IMAGE SCALE + FADE IN on scroll enter
   document.querySelectorAll('[data-gallery]').forEach(wrap => {
