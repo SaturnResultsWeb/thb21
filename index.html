@@ -143,7 +143,7 @@ main{overflow-x:hidden;width:100%;max-width:100%}
   opacity:0;animation:fadeUp .9s .95s var(--ease-out) forwards
 }
 .hero-scroll{
-  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  position:absolute;bottom:2.5rem;left:0;right:0;margin:0 auto;width:fit-content;
   display:flex;flex-direction:column;align-items:center;gap:.5rem;
   opacity:0;animation:fadeUp .8s 1.3s var(--ease-out) forwards;z-index:2;
   transition:opacity .5s var(--ease-out)
@@ -204,8 +204,8 @@ main{overflow-x:hidden;width:100%;max-width:100%}
 .b-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,24,.92) 0%,rgba(26,26,24,.15) 55%)}
 .b-content{position:absolute;bottom:0;left:0;right:0;padding:clamp(1.2rem,2.5vw,2rem)}
 .b-tag{
-  font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);font-weight:600;margin-bottom:.4rem
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-light);font-weight:500;margin-bottom:.5rem
 }
 .b-card h3{
   font-family:var(--font-display);font-weight:400;color:var(--white);
@@ -291,10 +291,15 @@ main{overflow-x:hidden;width:100%;max-width:100%}
   position:relative
 }
 .gallery-left{
-  padding:clamp(4rem,8vw,8rem) 3rem clamp(6rem,12vw,12rem) 0;
+  padding:clamp(4rem,8vw,8rem) 3rem clamp(2rem,4vw,4rem) 0;
   display:flex;flex-direction:column;justify-content:flex-start;
   align-self:start;
   position:relative
+}
+.gallery-contact{
+  grid-column:1/-1;
+  padding:2.5rem 0 3rem;
+  border-top:1px solid rgba(26,26,24,.12)
 }
 .gallery-right{
   padding:clamp(4rem,8vw,8rem) 0;
@@ -416,8 +421,9 @@ h2.section-title em{font-style:italic;font-family:var(--font-display);color:var(
   .acc-track{height:420px}
   .acc-item{min-width:50px}
   .gallery-section{grid-template-columns:1fr;padding-top:3rem;padding-bottom:3rem}
-  .gallery-left{padding:0 0 3rem 0}
-  .gallery-right{gap:2.5rem}
+  .gallery-left{padding:0 0 1.5rem 0}
+  .gallery-right{gap:2.5rem;padding-top:2rem}
+  .gallery-contact{padding:2rem 0 2.5rem}
   .footer-grid{grid-template-columns:1fr 1fr}
   .b-card-b,.b-card-c{grid-column:span 6}
 }
@@ -659,11 +665,6 @@ h2.section-title em{font-style:italic;font-family:var(--font-display);color:var(
     <div style="margin-top:2rem" class="r d3">
       <a href="reservation.html" class="btn btn-dark">Plan Your Stay &rarr;</a>
     </div>
-    <div style="margin-top:3rem;padding-top:3rem;padding-bottom:3rem;border-top:1px solid rgba(26,26,24,.12)" class="r d4">
-      <div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.5rem">Reach us directly</div>
-      <a href="tel:+441481823230" style="font-family:var(--font-display);font-size:1.05rem;color:var(--ink);text-decoration:none;display:block;margin-bottom:.3rem">+44 (0)1481 823230</a>
-      <a href="mailto:reservations@blondehedgehog.com" style="font-size:.84rem;color:var(--stone);text-decoration:none">reservations@blondehedgehog.com</a>
-    </div>
   </div>
   <div class="gallery-right">
     <div>
@@ -690,6 +691,11 @@ h2.section-title em{font-style:italic;font-family:var(--font-display);color:var(
       </div>
       <div class="gallery-caption">The Blonde Hedgehog, Saint Anne, Alderney GY9 3UY</div>
     </div>
+  </div>
+  <div class="gallery-contact r">
+    <div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.5rem">Reach us directly</div>
+    <a href="tel:+441481823230" style="font-family:var(--font-display);font-size:1.05rem;color:var(--ink);text-decoration:none;display:block;margin-bottom:.3rem">+44 (0)1481 823230</a>
+    <a href="mailto:reservations@blondehedgehog.com" style="font-size:.84rem;color:var(--stone);text-decoration:none">reservations@blondehedgehog.com</a>
   </div>
 </section>
 
@@ -841,23 +847,6 @@ window.addEventListener('load', () => {
     });
   }
 
-  // IMAGE SCALE + FADE IN on scroll enter
-  document.querySelectorAll('[data-gallery]').forEach(wrap => {
-    gsap.fromTo(wrap,
-      { scale: 0.88, opacity: 0, y: 48 },
-      {
-        scale: 1, opacity: 1, y: 0,
-        duration: 1.1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: wrap,
-          start: 'top 88%',
-          end: 'top 35%',
-          toggleActions: 'play none none reverse'
-        }
-      }
-    );
-  });
 
   // WORD-BY-WORD TEXT SCRUB
   const scrubEl = document.getElementById('scrubQuote');
