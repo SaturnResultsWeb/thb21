@@ -838,13 +838,24 @@ window.addEventListener('load', () => {
 
   // PIN LEFT COLUMN while gallery scrolls (desktop only)
   if (window.innerWidth >= 900) {
-    ScrollTrigger.create({
-      trigger: '#gallerySection',
-      start: 'top 8%',
-      end: 'bottom bottom',
-      pin: '#galleryLeft',
-      pinSpacing: false
-    });
+    const glLeft = document.getElementById('galleryLeft');
+    const btn = glLeft && glLeft.querySelector('.btn-dark');
+    const contact = document.querySelector('.gallery-contact');
+    if (glLeft && btn && contact) {
+      const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+      const gap = rem * 2.5;
+      const offsetFromTop = btn.getBoundingClientRect().bottom - glLeft.getBoundingClientRect().top;
+      const btnViewportY = window.innerHeight * 0.08 + offsetFromTop;
+      const endPct = Math.min(((btnViewportY + gap) / window.innerHeight * 100), 92).toFixed(1);
+      ScrollTrigger.create({
+        trigger: '#gallerySection',
+        endTrigger: '.gallery-contact',
+        start: 'top 8%',
+        end: `top ${endPct}%`,
+        pin: '#galleryLeft',
+        pinSpacing: false
+      });
+    }
   }
 
 
